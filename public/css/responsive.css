@@ -1,0 +1,130 @@
+/*
+  page grid
+*/
+
+.grid-container{
+    position:relative;
+    width:100%;
+    *zoom: 1;
+}
+.grid-container:after,.grid-container:before{
+    display: table;
+    line-height: 0;
+    content:"";
+    margin-right: auto;
+    margin-left: auto;
+}
+
+[class*="col"] {
+    display: block;
+    float: left;
+    width: 100%;
+    padding:15px;
+    min-height: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.grid-container:after{
+    clear: both;
+}
+
+.col-1{
+    width:8.333333333333%;
+}
+
+.col-2{
+    width:16.6666666666667%;
+}
+.col-3{
+    width:25%;
+}
+.col-4{
+    width:33.3333333333333%;
+}
+.col-5{
+    width:41.66666666666667%;
+    background: blue !important;
+}
+.col-6{
+    width:50%;
+}
+.col-7{
+    width:58.3333333333333%;
+}
+.col-8{
+    width:66.66666666666667%;
+}
+.col-9{
+    width:75%;
+}
+.col-10{
+    width:83.333333333333%;
+}
+.col-11{
+    width:91.666666666667%;
+}
+.col-12{
+    width: 100%;
+}
+
+/*
+screen size really small
+*/
+
+@media(max-width:480px){
+    body{
+        font-size:10pt !important;
+    }
+    #powered-by{
+        font-size: 9pt;
+        padding:1em;
+    }
+}
+
+/*
+screen size less than a tab
+*/
+@media (max-width: 767px) {
+
+    [class*="col"] {
+        display: block;
+        float: none;
+        width: 100%;
+        padding: 5px;
+        margin-left: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+
+}
+
+/*
+screen size tablet
+*/
+@media (min-width: 768px) and (max-width: 979px) {
+
+    [class*="col"] {
+        display: block;
+        float: none;
+        width: 100%;
+        padding: 0px;
+        margin-left: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+
+
+}
+
+/*
+screen size laptop and higher
+*/
+@media(min-width:1200px){
+    
+}

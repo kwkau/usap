@@ -1,0 +1,67 @@
+body
+  {
+    background-color:   #f7f7f7;
+  }
+.account-wall
+{
+margin-top:53px;
+padding: 10px 0px 20px 0px;;
+}
+
+.col-sm-6 img{
+  display : block; 
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+.lft{
+  border-right:1px solid #bbbbbb;
+}
+
+.login-title
+{
+color: #555;
+font-size:3rem;
+font-weight: 8;
+display: block;
+}
+
+.form-signin
+{
+max-width: 330px;
+padding: 15px;
+margin: 0 auto;
+}
+
+
+
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+margin-bottom: 10px;
+}
+.form-signin .checkbox
+{
+font-weight: normal;
+}
+
+.form-signin .form-control
+{
+font-size: 13px;
+height: auto;
+padding: 10px;
+}
+
+
+.form-signin input
+{
+margin-bottom: 1px;
+}
+
+.checkbox{
+  margin-left: 20px!important;
+}
+
+select{
+  margin-bottom: 1px;
+}
+

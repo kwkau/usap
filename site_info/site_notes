@@ -1,0 +1,288 @@
+ussap dropzone
+the ussap drop zone will be the converging point for all data that exist on ussap for a
+user.
+data that can be viewed on the drop zone
+1. forums
+    - forum author
+        * department
+        * user
+    - forum title
+    - forum topic {forum content}
+    - forum category
+    - forum date
+    - forum origin
+        * department
+        * user
+
+2. posts
+    - post author
+        * department
+        * user
+    - post content
+        * pic content
+        * text content
+    - post date
+    - post like
+    - post comments
+        * comment author
+        * comment text
+
+3. notifications
+    - notification type
+        * departmental notification
+        * group notification
+        * user notification
+        * forum notification
+        * post notification
+    - notification content
+    - notification instigator
+        * department
+        * user
+            # user in a forum {forum and forum post comment}
+            # user in a post {post and post comment}
+        * group
+    - notification status indicator
+        * seen
+        * not seen
+
+4. friend list/chats
+    - friend profile pic
+    - friend name
+    - friend status
+        * online
+        * offline
+    - chat box
+
+5. bookmarks
+    - bookmark date
+    - forum bookmark
+    - post bookmark
+    - bookmark name
+
+6. groups
+    - group name
+    - group pic (if any)
+    - create group btn
+
+7. uploads
+    - file name
+    - upload date
+    - file size
+------------------------------------------------------------------------------------------------------------------------
+
+ui tasks{
+    develop a general layout for ussap.
+    work on the dropzone ui.
+    work on the notification, figure out how it will be displayed to the user
+    as well as its look and feel.
+    work on forums, determine how users will interact with the forum ui and how it will look
+    work on posts, determine how users will interact with the forum ui and how it will look
+    work on uploads, determine how users will interact with uploads and how an uploaded file will look like on the system
+}
+------------------------------------------------------------------------------------------------------------------------
+
+
+ussap notifications
+this will be the engine that will move and manage important information to users to
+allow them to know what is going on around them whiles they are on our system
+
+
+/*--------------------------------------------------
+     * how many types of notifications will we have
+     * 1. forum notifications
+     *      - forum comment create notification
+     *      - forum flag notification
+     * 2. post notifications
+     *      - post like notification
+     *      - post comment create notification
+     *      - post flag notification
+     * 3. friend notifications
+     *      - friend request receive notification
+     *      - friend request accept notification
+     * 4. group notifications
+     *      - new member joined notification
+     *      - group request membership notification
+     *      - group confirm membership notification
+     *
+ *          - forum create notification
+ *          - forum comment create notification
+ *          - forum flag notification
+     *
+ *          - post create notification
+ *          - post comment create notification
+ *          - post flag notification
+     *
+     *      - group upload notification
+     * 5. chat notifications
+     *      - message reception notification
+     *      - group chat addition notification
+     *
+     * how will we create notifications
+     * for notification we will have
+     * 1. a perp: the user who's actions triggered the notification
+     * 2. a target: the user who will receive the notification about the action
+     * 3. content: information about the action which was performed by the perp
+     * 4. object id: the unique identifier of the object which the perp interacted with
+     *---------------------------------------------------------------------------------*/
+
+
+
+dropzone page load protocols
+what will be the best way to transport the users information to the javascript with absolute discretion
+through html or through ajax
+i think ajax will be the best
+
+so we have the users id what next?
+fetch basic information about the user
+ajax
+{
+    the username
+    the department
+    the user id
+    the profile pic url
+}
+
+1. the number of friends (check)
+2. the number of unread notifications (check)
+3. the number of unread messages
+
+forum websocket
+on socket open send the user id of the user
+receive and display a set of twelve forums
+
+
+Advanced templating: illustrates defines and includes.
+
+    Include external snippet defined in a variable:
+{{#def.externalsnippet}}
+
+Load external template from a file:
+{{#def.loadfile('/snippet.txt')}}
+
+Load external template from a file and cache in a variable:
+{{#def['snippet.txt'] || (def['snippet.txt'] = def.loadfile('/snippet.txt'))}}
+
+Use cached file again:
+{{#def['snippet.txt']}}
+
+Here is a def block that will be used later. This snippet can be referenced from external templates too:
+{{##def.snippet1:
+    Some snippet that will be included {{#def.a}} later {{=it.f1}}
+#}}
+
+First use of snippet1:
+{{#def.snippet1}}
+
+Second use of snippet1:
+{{#def.snippet1}}
+
+Include snippet1 if true:
+{{# true && def.snippet1 }}
+
+Runtime and Compile time evaluation used together:
+{{= it.f3 + {{#def.a + def.b}} }}
+
+Include xyz or insert 'not found':
+{{#def.xyz || 'not found'}}
+
+Set xyz to 1 and exclude result from output:
+{{##def.xyz=1#}} is identical to {{#(def.xyz=1) && ""}}
+
+Compare xyz to 1, show 'xyz is not 1' if false:
+{{#def.xyz === 1 || 'xyz is not 1'}}
+
+{{ if ({{#!def.abc}}) { }}
+{{#def.abc}} is falsy
+{{ } }}
+
+{{ if ({{#def.xyz === 1}}) { }}
+if(true) block
+{{ } }}
+
+{{##def.fntest = function() {
+    return "Function test worked!";
+}
+#}}
+
+{{#def.fntest()}}
+
+Conditionals:
+{{? !it.altEmail }}
+<p>
+second email: {{= it.altEmail }}
+</p>
+{{?? true }}
+else case worked
+{{?}}
+
+Array iterators
+{{~ it.farray :p }}
+<h1>{{=p.farray}}<h1>
+{{~ p.farray :value:i }}
+<h2>{{=i}}: {{=value}}</h2>
+{{~ value :w }}
+<h3>{{=w}}</h3>
+{{~}}
+{{~}}
+{{~}}
+
+{{~ ["apple", "banana", "orange"] :k}}
+{{=k}}
+{{~}}
+
+{{~ (function(){ return [1,2,3]})() :k}}
+{{=k}}
+{{~}}
+
+{{ function children(it) { }}
+
+    {{?it.Nodes.length}}
+<ul>
+{{~ it.Nodes :p}}
+<li>
+{{=p.title}}
+{{children(p);}}
+</li>
+{{~}}
+</ul>
+{{?}}
+
+{{ } }}
+
+{{ children( {Nodes:[ {title:"1.1", Nodes:[ {title:"1.1.1", Nodes:[]}, {title:"1.1.2", Nodes:[]}] }, { title:"1.2", Nodes:[]}, { title:"1.3", Nodes:[]}], title:"1" } ); }}
+
+
+{{##def.block:param:
+    <div>{{=param}}</div>
+#}}
+
+{{##def.block1:param:
+    <div>{{=param.a}}</div>
+#}}
+
+
+{{#(def.block:'text' || '') + def.block:5}}
+
+{{#def.block:it.f3 || ''}}
+
+{{#def.block:"lala tralala" || ''}}
+
+{{#def.block1:{a:1, b:2} || ''}}
+
+{{##def.testFunctionWithParam = function(str) {
+    return "My name is: " + str;
+}
+#}}
+
+{{##def.mytestparam: {{=it.name}} #}}
+{{#def.testFunctionWithParam(def.mytestparam)}}
+
+{{#def.testFunctionWithParam("\{\{=it.name\}\}")}}
+
+{{##def.testParamDef:myparam:
+    My name is: {{=myparam}}
+#}}
+
+{{#def.testParamDef:it.name}}
+
+The end

@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_friend_request`(IN friendRequestId INT,IN userOne INT, IN userTwo INT, IN requestMessage VARCHAR(45))
+BEGIN
+    INSERT INTO ussap.friend_request(friend_request_id, user_one, user_two, request_message)
+      VALUES (friendRequestId,userOne,userTwo,requestMessage);
+  END;

@@ -1,0 +1,53 @@
+#profile-pane h2 {
+    color: #286090;
+    text-transform: capitalize;
+}
+
+#profile-pane h3 {
+    color: #7e7e7e;
+}
+
+.profile-pic input {
+    position: relative;
+    top: -12em;
+    height: 168px;
+    width: 100%;
+    z-index: 20;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.profile-pic img {
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+
+.profile-pic div {
+    border-radius: 40em;
+    overflow: hidden;
+    height: 166px;
+    width: 185px;
+}
+
+.edit {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: .2em;
+    color: #bbbbbb;
+    transition: color .3s ease-out
+}
+
+.profile-details .glyph {
+    background: pin;
+    padding: 0em 0em
+}
+
+.profile-details p {
+    display: block;
+    padding: .05em;
+}
+
+p:hover .edit {
+    color: #555555;
+}

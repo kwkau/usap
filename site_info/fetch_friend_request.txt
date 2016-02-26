@@ -1,0 +1,4 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `fetch_friend_request`(IN recepientId INT)
+BEGIN
+    SELECT * FROM ussap.friend_request AS frnd_request WHERE ussap.friend_request.user_two = recepientId;
+  END;

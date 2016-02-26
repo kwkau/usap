@@ -1,0 +1,11 @@
+CREATE TABLE `friend_request` (
+  `friend_request_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_one` int(11) NOT NULL,
+  `user_two` int(11) NOT NULL,
+  `request_message` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`friend_request_id`),
+  KEY `user_one_index` (`user_one`),
+  KEY `user_two_index` (`user_two`),
+  CONSTRAINT `friend_request_ibfk_2` FOREIGN KEY (`user_two`) REFERENCES ussap.`user` (`user_id`),
+  CONSTRAINT `friend_request_ibfk_1` FOREIGN KEY (`user_one`) REFERENCES ussap.`user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

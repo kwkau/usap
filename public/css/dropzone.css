@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+/*
+friends image height: 166
+friends image width: 166
+*/
+
+
+.mem-list .list-group-item:not(.active){
+  padding:0em
+}
+
+
+.col-md-2{
+  padding: 0
+}
+
+.mem-pic{
+  width:13%;
+  padding: .4em
+}
+
+.mem-pic img{
+  width:100%;
+  height:100%;
+}
+
+.list-group-item button{
+  margin-top:1em;
+}
+
+.mem-name{
+  height: 100%;
+}
+
+.mem-name .col-md-10{
+  padding:1.35em;
+}
+

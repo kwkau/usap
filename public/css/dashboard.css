@@ -1,0 +1,86 @@
+
+#form > div {
+    margin-bottom: 25px;
+}
+
+#form > div:last-child {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.panel {
+    position: relative;
+    top:10em;
+}
+
+.input-group{
+    margin-bottom: 25px;
+}
+
+.form-group{
+    position: relative!important;
+    margin-bottom: 6em;
+}
+
+.login-margin{
+    position: relative;
+    margin: 70px;
+    margin-top: 2px;
+}
+
+.panel-body {
+    padding-top: 30px;
+    background-color: rgba(255,255,255,.3);
+
+}
+.panel-body2 {
+    padding-top: 30px;
+    background-color: rgba(255,255,255,.3);
+
+}
+.panel-heading {
+    font-weight: bold;
+}
+
+.adminfont{
+    font-weight:bold;
+}
+.nav-color{
+    background-color: #2e6da4;
+}
+.colorful{
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+/*
+friends image height: 166
+friends image width: 166
+*/
+
+
+
+
+.mem-pic img{
+    width:100%;
+  height:auto;
+}
+
+.list-group-item button{
+    margin-top:1em;
+}
+
+.mem-name{
+  background: gra;
+}
+
+#user-results{
+  padding: 0.5em 0.5em;
+}
+

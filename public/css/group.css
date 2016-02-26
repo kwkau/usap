@@ -1,0 +1,30 @@
+.mem-list{
+  padding: 0em 5em
+}
+
+.list-group-item.active{
+  padding: 1em!important;
+}
+
+.mem-list .list-group-item{
+  height:3.5em;
+  padding:0em
+}
+
+.mem-pic{
+  width: 7.5%;
+  height: 100%;
+  padding: .3em;
+  float:left
+}
+
+.mem-list .mem-pic img{
+  height: 100%;
+}
+
+.mem-name{
+  width: 92.5%;
+  padding: 1em;
+  height: 100%;
+  float:right
+}

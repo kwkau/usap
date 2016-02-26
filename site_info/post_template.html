@@ -1,0 +1,67 @@
+
+        <div id = "sswap-pod-wrapper" data-sw-model = "Profea_postMdl value:filter query:orderBy orderQuery">
+            <div class="usap-pod">
+                <div class = "usap-pod-header">
+                    <div class = "user-pic"><img src = "<?php echo IMAGES;?>{{=value.userprofpic}}" /></div>
+                    <div class = "username"><span><a href="javascript:;">{{=value.username}}</a></span></div>
+                    <div class = "pointer"></div>
+                </div>
+
+                <div class="usap-pod-main-cont">
+                    <div class="text-content">
+                        {{=value.posttext}}
+                    </div>
+                    {{ if (value.postmedia !== "none"){ }}
+                    <div class="pic-content">
+                        <img src="<?php echo IMAGES; ?>{{=value.postmedia}}"/>
+                    </div>
+                    {{ } }}
+                </div>
+
+                <div class="ussap-pod-footer">
+                    <div class="post-pecs">
+                        <div class="check-pod">
+                            <div class="podlet">
+                                <img src="podcheck.png" />
+                                {{=value.postlikes}}
+                            </div>
+                        </div>
+                        <div class="share-pod">
+                            <div class="podlet">
+                                Share
+                                {{=value.postshares}}
+                            </div>
+                        </div>
+                        <!-- post indi stands for post individuals/-->
+                        <div class="post-indi">
+                            <ul>
+                                {{~value.postlikepics :pics}}
+                                <li><img src="<?php echo IMAGES; ?>{{=pics}}" /></li>
+                                {{~}}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="comments-cont">
+
+                        <div class="comments-cont-header">
+                            <span>Comments {{=value.commentnum}}</span>
+                        </div>
+                        <!-- comment pod will be the container for all comments on all posts /-->
+                        {{~value.postcoments :comnts}}
+                        <div class="comment-pod">
+                            <div class="user-comment-info">
+                                <div class="user-comment-pic"><img src="<?php echo IMAGES; ?>{{=comnts.userprofpic}}" /></div>
+                                <div class="username-comment"><a href="javascript:;">{{=comnts.username}}</a></div>
+                            </div>
+                            <p>
+                                {{=comnts.commenttext}}
+                            </p>
+                        </div>
+                        {{~}}
+                    </div>
+                    <div class="comment-field">
+                        <input type="text"  name="" placeholder="Write your comment....."/>
+                    </div>
+                </div>
+            </div>
+        </div>
