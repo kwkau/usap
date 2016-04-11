@@ -1,0 +1,57 @@
+{
+  "name": "easybank",
+  "scripts": {
+  },
+  "env": {
+    "CSS": {
+      "required": true
+    },
+    "DB_NAME": {
+      "required": true
+    },
+    "DB_PASS": {
+      "required": true
+    },
+    "DB_TYPE": {
+      "required": true
+    },
+    "DB_USER": {
+      "required": true
+    },
+    "DOMAIN_NAME": {
+      "required": true
+    },
+    "ENCRYPT": {
+      "required": true
+    },
+    "HOST_NAME": {
+      "required": true
+    },
+    "HOST_URL": {
+      "required": true
+    },
+    "IMAGES": {
+      "required": true
+    },
+    "JS": {
+      "required": true
+    },
+    "PORT": {
+      "required": true
+    },
+    "UPLOAD_DIR": {
+      "required": true
+    },
+    "UPLOAD_URL": {
+      "required": true
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+}
