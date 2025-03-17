@@ -1,6 +1,11 @@
 <?php
 
-function loadSSWAP($class){
+// Replace the custom autoloader with Composer's autoloader
+require 'vendor/autoload.php';
+
+// If you need to maintain backward compatibility, you can keep the existing loader
+// but wrap it in a function that only runs if Composer couldn't find the class
+spl_autoload_register(function($class) {
     $pathControllers = "controller/{$class}.php";
     $pathLibs = "libs/{$class}.php";
     $pathModels = "model/{$class}.php";
@@ -10,27 +15,21 @@ function loadSSWAP($class){
     $pathConfig = "config/{$class}.php";
     $websockets = "websockets/{$class}.php";
 
-    if (file_exists($websockets)) {
-        require $websockets;
-    }elseif (file_exists($pathControllers)) {
-        require $pathControllers;
-    } elseif (file_exists($pathModels)) {
-        require $pathModels;
-    } elseif (file_exists($pathLibs)) {
-        require $pathLibs;
-    } elseif (file_exists($pathConfig)) {
-        require $pathConfig;
-    }elseif (file_exists($pathInterfaces)) {
-        require $pathInterfaces;
-    }elseif (file_exists($pathExceptions)) {
-        require $pathExceptions;
-    }elseif(file_exists($data_defs)){
-        require $data_defs;
+    // Use a cleaner approach with an array of paths to check
+    $paths = [
+        $websockets, $pathControllers, $pathModels, $pathLibs,
+        $pathConfig, $pathInterfaces, $pathExceptions, $data_defs
+    ];
+    
+    foreach ($paths as $path) {
+        if (file_exists($path)) {
+            require $path;
+            return true;
+        }
     }
-}
-
-spl_autoload_extensions('.php,.phar');
-spl_autoload_register('loadSSWAP');
+    
+    return false;
+});
 
 //initialize the framework by setting environment variables
 new initialize();
